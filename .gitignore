@@ -895,3 +895,10 @@
 # uploads/
 # downloads/
 
+# ==============================================================================
+# EXCEPTIONS FOR OFFICIAL RELEASES
+# ==============================================================================
+# Allow executables in bin/ and release/ folders (official builds)
+!/bin/*.exe
+!/release/*.exe
+

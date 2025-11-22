@@ -34,10 +34,12 @@
 
 ### 🚀 Instalación Rápida
 
-1. **Descarga** el archivo `Stealth-AntiCheatX.exe`
+1. **Descarga** el ejecutable desde la carpeta `bin/` del repositorio
 2. **Ejecuta como Administrador**
 3. **Configura Discord Webhook** (opcional)
 4. **¡Listo!** El programa se ejecuta en background
+
+> **📁 Ejecutables disponibles en:** [`bin/`](./bin/README.md)
 
 ### ⚙️ Configuración Discord
 
