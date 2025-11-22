@@ -1,0 +1,27 @@
+name: Compile Stealth AntiCheat
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install mingw-w64
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y mingw-w64
+        
+    - name: Compile for Windows
+      run: |
+        x86_64-w64-mingw32-g++ -O2 -std=c++17 -s src/Stealth-AntiCheat.cpp -o Stealth-AntiCheatX.exe -static-libgcc -static-libstdc++ -lpsapi -ladvapi32 -lwininet
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Stealth-AntiCheatX
+        path: Stealth-AntiCheatX.exe
