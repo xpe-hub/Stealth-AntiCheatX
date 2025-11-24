@@ -1,11 +1,11 @@
-# Stealth AntiCheat X - Advanced AntiCheat for BlueStacks Gaming
+# Stealth AntiCheat X - Advanced Anti-Cheat Protection System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://github.com/xpe-hub/Stealth-AntiCheatX/workflows/Build%20Stealth-AntiCheatX/badge.svg)](https://github.com/xpe-hub/Stealth-AntiCheatX/actions)
 
-**© 2025 xpe.nettt** - Advanced AntiCheat System for BlueStacks/MSI Gaming
+**© 2025 xpe.nettt** - Professional Anti-Cheat System for BlueStacks/MSI
 
-**Stealth-AntiCheatX** es un sistema anti-cheat avanzado y discreto diseñado específicamente para usuarios de BlueStacks y MSI Emulator. Este programa monitorea y protege contra cheating, aimbots, ESP overlays, DLL injections, y otras técnicas de juego sucio mediante múltiples capas de protección en tiempo real.
+**Stealth-AntiCheatX** es un sistema de protección anti-cheat avanzado diseñado para organizadores de torneos y competiciones competitivas. Previene wallhacks, aimbot, ESP, DLL injection, y otras técnicas de trampa mediante múltiples capas de protección en tiempo real, evitando xiteos y clk coups en competiciones profesionales.
 
 ## 🚀 **NUEVO**: Compilación Automática
 
@@ -18,11 +18,38 @@
 
 [🔧 **Guía Completa de Compilación Automática**](COMPILATION_AUTO.md)
 
-## Features
+## 🎯 **Categorías de Detección Profesional**
+
+### **Wallhacks & ESP Detection**
+- ✅ Detecta overlays transparentes estilo ESP
+- ✅ Monitorea ventanas con estilos sospechosos (0x94000000)
+- ✅ Terminación automática de procesos ESP activos
+
+### **Aimbot & Process Injection**
+- ✅ Escaneo de DLLs no firmadas en tiempo real
+- ✅ Detección de inyección de procesos externa
+- ✅ Verificación de threads sospechosos fuera de rangos conocidos
+
+### **Hardware Cheats & DMA**
+- ✅ Detección de dispositivos DMA (PCI, USB, Serial, Parallel)
+- ✅ Monitoreo de hardware de terceros no autorizado
+- ✅ Análisis de dispositivos periféricos sospechosos
+
+### **Speed Hacks & Time Manipulation**
+- ✅ Detección de tampering temporal (steady-clock vs wall-clock)
+- ✅ Identificación de debuggers y velocidad manipulation
+- ✅ Verificación de integridad temporal del sistema
+
+### **File Integrity & System Monitoring**
+- ✅ Verificación SHA1 de DLLs críticas del sistema
+- ✅ Monitoreo de modificaciones no autorizadas
+- ✅ Logging completo de actividad del sistema
+
+## 🛡️ **Funcionalidades de Protección**
 
 - **External Protection**  
   - Monitors process handles in real time  
-  - Terminates windows matching suspicious overlay styles (ESP detection)  
+  - Terminates windows matching suspicious overlay styles  
   - Detects and reports unauthorized handle duplication  
 - **Internal Protection**  
   - Scans loaded modules for digital signatures (signed vs. unsigned)  
@@ -33,11 +60,12 @@
   - Requires Administrator & SE_DEBUG privileges  
   - Disables console quick-edit and close button  
   - Custom console banner and dynamic title indicating uptime
-- **Discord Logging**  
+- **Discord Community Integration**  
+  - **Stealth Gaming Community**: https://discord.gg/3sCxhWShvu
   - Real-time reporting to Discord webhook
   - User tracking and crash attempt monitoring
-- **Audio Alerts**  
-  - Distinctive beep alerts for each detection type
+- **Professional Audio Alerts**  
+  - Distinctive beep alerts for each detection category
   - Different frequencies: ESP (1000Hz), DLLs (800Hz), Threads (600Hz), Time (750Hz)
 - **Enhanced System Monitoring**  
   - DMA hardware detection (PCI, USB, Serial, Parallel devices)
@@ -85,12 +113,13 @@ Run `Stealth-AntiCheatX.exe` as Administrator. The program will:
 - Log all activity to console and Discord webhook
 - Require no user interaction for basic operation
 
-## Technical Details
+## 📊 **Información Técnica**
 
 - **Target Process**: HD-Player.exe (BlueStacks emulator)
 - **Detection Method**: Window style enumeration, handle monitoring, module verification
 - **Reporting**: Console output + Discord webhook integration
 - **Privileges Required**: Administrator + SE_DEBUG
+- **Community**: [Stealth Gaming Community](https://discord.gg/3sCxhWShvu)
 
 ## License
 
@@ -99,4 +128,4 @@ This project is licensed under the MIT License.
 ---
 
 **Developed by xpe.nettt**  
-**Project: Stealth AntiCheat X for BlueStacks Gaming**
+**Professional Anti-Cheat Protection System**
