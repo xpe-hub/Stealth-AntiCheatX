@@ -1,4 +1,4 @@
-# Stealth AntiCheat X - Advanced Anti-Cheat Protection System
+# Stealth AntiCheat X - Advanced AntiCheat for BlueStacks
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://github.com/xpe-hub/Stealth-AntiCheatX/workflows/Build%20Stealth-AntiCheatX/badge.svg)](https://github.com/xpe-hub/Stealth-AntiCheatX/actions)
@@ -128,4 +128,4 @@ This project is licensed under the MIT License.
 ---
 
 **Developed by xpe.nettt**  
-**Professional Anti-Cheat Protection System**
+**Project: Stealth AntiCheat X for BlueStacks**
