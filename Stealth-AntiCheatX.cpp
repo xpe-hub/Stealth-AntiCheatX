@@ -634,6 +634,45 @@ void MonitorAndRestrictAccess(DWORD targetPid) {
     free(handleInfo);
 }
 
+// MISSING FUNCTIONS FROM GALIB - CRITICAL FOR MEMORY DETECTION
+PVOID GetZwWriteVirtualMemoryAddress() {
+    HMODULE ntdll = GetModuleHandleA("ntdll.dll");
+    if (!ntdll) {
+        return nullptr;
+    }
+
+    FARPROC zwWriteVirtualMemory = GetProcAddress(ntdll, "ZwWriteVirtualMemory");
+    if (!zwWriteVirtualMemory) {
+        return nullptr;
+    }
+
+    return (PVOID)((uintptr_t)zwWriteVirtualMemory);
+}
+
+std::string GetProcessName(HANDLE processHandle) {
+    char processName[MAX_PATH] = "<Unknown>";
+    if (GetModuleBaseNameA(processHandle, NULL, processName, sizeof(processName) / sizeof(char))) {
+        return std::string(processName);
+    }
+    return std::string("<Unknown>");
+}
+
+bool ReadMemory(HANDLE processHandle, PVOID address, std::vector<BYTE>& buffer, SIZE_T size) {
+    buffer.resize(size);
+    SIZE_T bytesRead;
+    if (ReadProcessMemory(processHandle, address, buffer.data(), size, &bytesRead) && bytesRead == size) {
+        return true;
+    }
+    return false;
+}
+
+void PrintBytes(const std::vector<BYTE>& bytes) {
+    for (BYTE b : bytes) {
+        printf("%02X ", b);
+    }
+    std::cout << std::endl;
+}
+
 
 
 PVOID GetZwWriteVirtualMemoryAddress() {
@@ -695,38 +734,24 @@ void monitorexternal() {
         if (targetPid != 0) {
 
             if (!isProcessRunning) {
-                // Log when process starts
-                std::wstringstream details;
-                details << L"HD-Player.exe detectado y iniciado monitoreo\n";
-                details << L"PID: " << targetPid;
-                LogDetection(L"HD-Player Detected", details.str(), L"INFO");
+                // Log when process starts (Galib's version doesn't have Discord, so skip this part)
                 isProcessRunning = true;
             }
-            
             std::wcout << L"Monitoring process: " << targetProcessName << L" (PID: " << targetPid << L")..." << std::endl;
 
             MonitorAndRestrictAccess(targetPid);
-
 
         }
         else {
 
             if (isProcessRunning) {
                 std::wcout << L"Waiting for process: " << targetProcessName << L" to start..." << std::endl;
-                
-                // Log when process stops
-                std::wstringstream stopDetails;
-                stopDetails << L"HD-Player.exe no detectado\n";
-                stopDetails << L"Monitoreo pausado";
-                LogDetection(L"HD-Player Stopped", stopDetails.str(), L"WARNING");
-                
                 isProcessRunning = false;
             }
 
         }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(400));
-
 
     }
 
@@ -740,13 +765,10 @@ void monitoresp() {
         DWORD targetPid = FindHDPlayerProcessId();
 
         if (targetPid == 0) {
-            // No HD-Player process found - log periodically but not too often
+            // No HD-Player process found - Galib's version doesn't log this
         }
         else {
-            // HD Player found - log ESP monitoring start
-            std::wstringstream details;
-            details << L"Iniciando monitoreo ESP en HD-Player\n";
-            details << L"PID: " << targetPid;
+            // HD Player found - same as Galib, just ESP monitoring
             EnumerateAndTerminateWindowByStyle(targetPid);
         }
 
