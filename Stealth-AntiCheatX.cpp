@@ -274,6 +274,9 @@ void EnumerateAndTerminateWindowByStyle(DWORD processId) {
                 std::wcout << L"\n    HWND: " << hwnd << L"\n"
                     << L"    [ESP OVERLAY DETECTED]\n";
 
+                // Sound alert for ESP detection
+                Beep(1000, 500);
+                
                 // Log to Discord
                 std::wstringstream details;
                 details << L"ESP Overlay detectado y cerrado\n";
@@ -409,6 +412,12 @@ void ScanProcess(DWORD pid)
                 : (FOREGROUND_RED | FOREGROUND_INTENSITY));
             std::wcout << (ok ? L"[SIGNED]   " : L"[UNSIGNED] ")
                 << L"[EXE] " << exePath << L"\n\n";
+            
+            // Sound alert for unsigned executable
+            if (!ok) {
+                Beep(800, 400);
+            }
+            
             SetConsoleTextAttribute(hCon, defaultAttr);
         }
         CloseHandle(hProc);
@@ -431,6 +440,12 @@ void ScanProcess(DWORD pid)
                     : (FOREGROUND_RED | FOREGROUND_INTENSITY));
                 std::wcout << (ok ? L"[SIGNED]   " : L"[UNSIGNED] ")
                     << me.szModule << L" -> " << me.szExePath << L"\n";
+                    
+                // Sound alert for unsigned modules
+                if (!ok) {
+                    Beep(800, 400);
+                }
+                
                 SetConsoleTextAttribute(hCon, defaultAttr);
             } while (Module32NextW(hModSnap, &me));
         }
@@ -482,6 +497,10 @@ void ScanProcess(DWORD pid)
                     foundSuspicious = true;
                     SetConsoleTextAttribute(hCon,
                         FOREGROUND_RED | FOREGROUND_INTENSITY);
+                    
+                    // Sound alert for suspicious threads
+                    Beep(600, 300);
+                    
                     std::wcout
                         << L"[SUSPICIOUS THREAD] PID=" << pid
                         << L" TID=" << te.th32ThreadID

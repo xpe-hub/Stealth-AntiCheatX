@@ -1,11 +1,10 @@
-# Stealth AntiCheat X for HD-Player
+# Stealth AntiCheat X - Advanced AntiCheat for Free Fire Gaming
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**© 2025 xpe.nettt** - Advanced anti-cheat monitor for HD-Player emulator.
+**© 2025 xpe.nettt** - Advanced AntiCheat System for Free Fire Gaming on BlueStacks/MSI
 
-A lightweight, native-Windows anti-cheat monitor for the HD-Player emulator designed for Free Fire gaming.  
-Continuously scans HD-Player processes and attached handles to detect and terminate overlays, unsigned modules, debugger/time-tampering attempts, and other suspicious activity.
+**Stealth-AntiCheatX** es un sistema anti-cheat avanzado y discreto diseñado específicamente para jugadores de Free Fire que utilizan BlueStacks o MSI Emulator. Este programa monitorea y protege contra cheating, aimbots, ESP overlays, DLL injections, y otras técnicas de juego sucio mediante múltiples capas de protección.
 
 ## Features
 
