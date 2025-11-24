@@ -1,10 +1,22 @@
 # Stealth AntiCheat X - Advanced AntiCheat for Free Fire Gaming
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Build Status](https://github.com/xpe-hub/Stealth-AntiCheatX/workflows/Build%20Stealth-AntiCheatX/badge.svg)](https://github.com/xpe-hub/Stealth-AntiCheatX/actions)
 
 **© 2025 xpe.nettt** - Advanced AntiCheat System for Free Fire Gaming on BlueStacks/MSI
 
 **Stealth-AntiCheatX** es un sistema anti-cheat avanzado y discreto diseñado específicamente para jugadores de Free Fire que utilizan BlueStacks o MSI Emulator. Este programa monitorea y protege contra cheating, aimbots, ESP overlays, DLL injections, y otras técnicas de juego sucio mediante múltiples capas de protección.
+
+## 🚀 **NUEVO**: Compilación Automática
+
+### ✅ **Descarga Inmediata del EXE**
+
+**GitHub Actions compila automáticamente el proyecto:**
+- **Push a main** → Compilación automática
+- **Create Release** → EXE subido automáticamente  
+- **Descarga directa**: https://github.com/xpe-hub/Stealth-AntiCheatX/releases
+
+[🔧 **Guía Completa de Compilación Automática**](COMPILATION_AUTO.md)
 
 ## Features
 
@@ -24,6 +36,13 @@
 - **Discord Logging**  
   - Real-time reporting to Discord webhook
   - User tracking and crash attempt monitoring
+- **Audio Alerts**  
+  - Distinctive beep alerts for each detection type
+  - Different frequencies: ESP (1000Hz), DLLs (800Hz), Threads (600Hz), Time (750Hz)
+- **Enhanced System Monitoring**  
+  - DMA hardware detection (PCI, USB, Serial, Parallel devices)
+  - File integrity verification (SHA1 hashing of critical DLLs)
+  - Comprehensive system and network information logging
 
 ## Prerequisites
 
@@ -33,9 +52,22 @@
 
 ## Building
 
+### Automatic Compilation (Recommended)
+**GitHub Actions compiles automatically on every push:**
+1. Push to main → Automatic compilation
+2. Create Release → EXE automatically uploaded
+3. Download from: https://github.com/xpe-hub/Stealth-AntiCheatX/releases
+
+### Manual Compilation
 ```bash
 git clone https://github.com/xpe-hub/Stealth-AntiCheatX.git
 cd Stealth-AntiCheatX
+
+# Option 1: MinGW compilation (Windows)
+build_mingw.bat
+
+# Option 2: Visual Studio compilation
+build_release.bat
 ```
 
 ## Installation
