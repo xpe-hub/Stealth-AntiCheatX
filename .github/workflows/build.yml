@@ -1,0 +1,76 @@
+name: Build Stealth-AntiCheatX
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  release:
+    types: [ created ]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: mingw64
+        install: mingw-w64-x86_64-gcc mingw-w64-x86_64-winpthreads-static
+    
+    - name: Create output directory
+      shell: msys2 {0}
+      run: |
+        mkdir -p Release/x64
+    
+    - name: Compile Stealth-AntiCheatX
+      shell: msys2 {0}
+      run: |
+        g++ -o Release/x64/Stealth-AntiCheatX.exe Stealth-AntiCheatX.cpp \
+            -lws2_32 -lwinhttp -lwinmm -lversion -lwininet \
+            -static -static-libgcc -static-libstdc++ \
+            -O2 -DNDEBUG \
+            -std=c++17 \
+            -Wall -Wextra
+    
+    - name: Verify compilation
+      shell: msys2 {0}
+      run: |
+        ls -la Release/x64/
+        file Release/x64/Stealth-AntiCheatX.exe
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Stealth-AntiCheatX
+        path: Release/x64/Stealth-AntiCheatX.exe
+        retention-days: 30
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      if: github.event_name == 'release'
+      with:
+        files: Release/x64/Stealth-AntiCheatX.exe
+        name: Stealth-AntiCheatX v${{ github.ref_name }}
+        body: |
+          ## Stealth-AntiCheatX v${{ github.ref_name }}
+          
+          ### Características:
+          - ✅ Detección de ESP overlay
+          - ✅ Monitoreo de DLLs no firmadas
+          - ✅ Detección de inyección de procesos
+          - ✅ Alertas por audio (beep)
+          - ✅ Logging a Discord Webhook
+          - ✅ Detección de hardware DMA
+          - ✅ Verificación de integridad de archivos
+          
+          ### Uso:
+          1. Ejecutar como administrador
+          2. El programa monitorizará automáticamente HD-Player.exe
+          3. Alertas de audio y logging en Discord en tiempo real
+          
+          **Compilado automáticamente con MinGW-w64**
