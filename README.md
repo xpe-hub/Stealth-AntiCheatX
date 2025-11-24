@@ -1,11 +1,11 @@
-# Stealth AntiCheat X - Advanced AntiCheat for Free Fire Gaming
+# Stealth AntiCheat X - Advanced AntiCheat for BlueStacks Gaming
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://github.com/xpe-hub/Stealth-AntiCheatX/workflows/Build%20Stealth-AntiCheatX/badge.svg)](https://github.com/xpe-hub/Stealth-AntiCheatX/actions)
 
-**© 2025 xpe.nettt** - Advanced AntiCheat System for Free Fire Gaming on BlueStacks/MSI
+**© 2025 xpe.nettt** - Advanced AntiCheat System for BlueStacks/MSI Gaming
 
-**Stealth-AntiCheatX** es un sistema anti-cheat avanzado y discreto diseñado específicamente para jugadores de Free Fire que utilizan BlueStacks o MSI Emulator. Este programa monitorea y protege contra cheating, aimbots, ESP overlays, DLL injections, y otras técnicas de juego sucio mediante múltiples capas de protección.
+**Stealth-AntiCheatX** es un sistema anti-cheat avanzado y discreto diseñado específicamente para usuarios de BlueStacks y MSI Emulator. Este programa monitorea y protege contra cheating, aimbots, ESP overlays, DLL injections, y otras técnicas de juego sucio mediante múltiples capas de protección en tiempo real.
 
 ## 🚀 **NUEVO**: Compilación Automática
 
@@ -87,7 +87,7 @@ Run `Stealth-AntiCheatX.exe` as Administrator. The program will:
 
 ## Technical Details
 
-- **Target Process**: HD-Player.exe (Free Fire emulator)
+- **Target Process**: HD-Player.exe (BlueStacks emulator)
 - **Detection Method**: Window style enumeration, handle monitoring, module verification
 - **Reporting**: Console output + Discord webhook integration
 - **Privileges Required**: Administrator + SE_DEBUG
@@ -99,4 +99,4 @@ This project is licensed under the MIT License.
 ---
 
 **Developed by xpe.nettt**  
-**Project: Stealth AntiCheat X for Free Fire Gaming**
+**Project: Stealth AntiCheat X for BlueStacks Gaming**
